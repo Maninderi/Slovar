@@ -7,14 +7,15 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Удалить" HorizontalAlignment="Left" Margin="421,214,0,0" VerticalAlignment="Top" Width="103" Click="Delete_Click"/>
-        <ListBox d:ItemsSource="{d:SampleData ItemCount=5}" Margin="47,146,554,146" SelectionChanged="ListBox_SelectionChanged"/>
-        <TextBox HorizontalAlignment="Left" Margin="47,88,0,0" TextWrapping="Wrap" ToolTip="Ввод" VerticalAlignment="Top" Width="199" Height="32" TextChanged="TextBox_TextChanged"/>
-        <TextBlock HorizontalAlignment="Left" Margin="47,49,0,0" TextWrapping="Wrap" Text="Введите ключ" VerticalAlignment="Top" Height="24" Width="172"/>
-        <Button Content="Поиск" HorizontalAlignment="Left" Margin="421,94,0,0" VerticalAlignment="Top" Width="103" Click="Search_Click"/>
-        <Button Content="Удалить всё" HorizontalAlignment="Left" Margin="421,269,0,0" VerticalAlignment="Top" Width="103" Click="DeleteAll_Click"/>
-        <TextBox HorizontalAlignment="Left" Margin="400,146,0,0" TextWrapping="Wrap" ToolTip="Ввод" VerticalAlignment="Top" Width="145" Height="35" TextChanged="TextBox_TextChanged_1"/>
-        <Button Content="Вывести всё" HorizontalAlignment="Left" Margin="109,334,0,0" VerticalAlignment="Top" Height="19" Width="86" Click="DisplayAll_Click"/>
+        <Button Content="Удалить" HorizontalAlignment="Left" Margin="367,249,0,0" VerticalAlignment="Top" Width="102" Click="Delete_Click"/>
+        <ListBox Name ="l1" Margin="47,146,492,82" SelectionChanged="ListBox_SelectionChanged"/>
+        <TextBox Name="input" HorizontalAlignment="Left" Margin="47,88,0,0" TextWrapping="Wrap" ToolTip="Ввод" VerticalAlignment="Top" Width="199" Height="32" TextChanged="TextBox_TextChanged"/>
+        <TextBlock HorizontalAlignment="Left" Margin="47,49,0,0" TextWrapping="Wrap" Text="Введите товар" VerticalAlignment="Top" Height="24" Width="172"/>
+        <Button Content="Поиск" HorizontalAlignment="Left" Margin="264,88,0,0" VerticalAlignment="Top" Width="111" Click="Search_Click" Height="32"/>
+        <Button Content="Удалить всё" HorizontalAlignment="Left" Margin="367,287,0,0" VerticalAlignment="Top" Width="103" Click="DeleteAll_Click"/>
+        <TextBox Name="output" HorizontalAlignment="Left" Margin="367,0,0,0" TextWrapping="Wrap" ToolTip="Ввод" VerticalAlignment="Center" Width="145" Height="32" TextChanged="TextBox_TextChanged_1"/>
+        <Button Content="Восстановить список" HorizontalAlignment="Left" Margin="47,383,0,0" VerticalAlignment="Top" Height="19" Width="154" Click="Restore_Click"/>
+        <TextBlock HorizontalAlignment="Left" Margin="369,168,0,0" TextWrapping="Wrap" Text="Цена:" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

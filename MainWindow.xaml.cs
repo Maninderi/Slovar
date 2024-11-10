@@ -23,9 +23,17 @@ namespace работа_с_словарём
         public MainWindow()
         {
             InitializeComponent();
+            l1.ItemsSource = products.Keys;
+            products1 = new Dictionary<string, int>(products);
         }
 
-        var products = new Dictionary<string, int>()
+        void UpdateL1()
+        {
+            l1.ItemsSource = null;
+            l1.ItemsSource = products.Keys;
+        }
+
+        Dictionary <string, int> products = new Dictionary<string, int>()
         {
             {"Хлеб", 40},
             {"Молоко", 80},
@@ -35,6 +43,8 @@ namespace работа_с_словарём
             {"Гречка", 50},
             {"Макароны", 60}
         };
+
+        Dictionary<string, int> products1;
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
@@ -47,26 +57,48 @@ namespace работа_с_словарём
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            if (l1.SelectedItem != null)
+            {
+                input.Text = l1.SelectedItem.ToString();
+            }
         }
-        private void DisplayAll_Click(object sender, RoutedEventArgs e)
+        private void Restore_Click(object sender, RoutedEventArgs e)
         {
-
+            products = new Dictionary<string, int>(products1);
+            UpdateL1();
         }
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
-
+            var key = Convert.ToString(input.Text);
+            if(products.TryGetValue(key, out int value) == true)
+            {
+                output.Text = value.ToString() + " рублей";
+            }
+            else
+            {
+                output.Text = "Ошибка";
+            }
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
-
+            var key = Convert.ToString(input.Text);
+            if (products.Remove(key))
+            {
+                output.Text = key.ToString() + " удалён";
+            }
+            else
+            {
+                output.Text = "Ошибка";
+            }
+            UpdateL1();
         }
 
         private void DeleteAll_Click(object sender, RoutedEventArgs e)
         {
-
+            products.Clear();
+            UpdateL1();
         }
     }
 }
